@@ -1,0 +1,219 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>To Eternity</title>
+  <style>
+  @media (max-width: 768px) {
+  .hide-on-mobile {
+    display: none;
+  }
+}
+    body {
+      margin: 0;
+      font-family: 'Helvetica Neue', sans-serif;
+      background: #000;
+      color: #f0f0f0;
+      line-height: 1.7;
+      padding: 60px 20px;
+    }
+    .nav {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      font-size: 0.9rem;
+      z-index: 1000;
+    }
+    .nav a {
+      margin-left: 15px;
+      text-decoration: none;
+      color: #888;
+    }
+    .nav a:hover {
+      color: #fff;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: #fff;
+    }
+    .meta {
+      font-size: 0.95rem;
+      color: #999;
+      font-style: italic;
+      margin-bottom: 30px;
+    }
+    .video-container {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      margin-bottom: 30px;
+    }
+    .video-container iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      border-radius: 8px;
+    }
+    .description {
+      font-size: 1rem;
+      color: #ccc;
+      margin-bottom: 50px;
+    }
+    .image-text-block {
+      display: flex;
+      flex-direction: row;
+      gap: 30px;
+      align-items: flex-start;
+      margin-bottom: 60px;
+      flex-wrap: wrap;
+    }
+    .image-text-block img {
+      width: 100%;
+      max-width: 400px;
+      border-radius: 8px;
+    }
+    .image-text-block .text {
+      flex: 1;
+      min-width: 250px;
+      font-size: 0.95rem;
+      color: #aaa;
+    }
+    nav.pagination {
+      margin-top: 60px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.95rem;
+    }
+    nav.pagination a {
+      color: #888;
+      text-decoration: none;
+    }
+    nav.pagination a:hover {
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <div class="nav">
+    <a href="../index.html#film">Film</a>
+    <a href="../index.html#interactive">Interactive Art</a>
+    <a href="../index.html#media">Media Art</a>
+    <a href="../index.html#xr">XR</a>
+    <a href="../index.html#vfx">3D/VFX</a>
+    <a href="../index.html#about" class="hide-on-mobile">About</a>
+    <a href="../index.html#news" class="hide-on-mobile">News</a>
+  </div>
+   <div class="container">
+    <h1>To Eternity</h1>
+    <div class="meta">2020 · Interactive Art · 국립아시아문화전당-ACC(Asia Culture Center) </div>
+
+    <div class="video-container">
+<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/1144090972?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="ToEternity 2min 30sec"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script></div>
+
+    <div class="description">
+      <p>To Eternity is an interactive media installation commemorating the Gwangju Democratization Movement (May 18, 1980).
+Using real-time body recognition, the system transforms the audience’s silhouette into a living mosaic of historical photographs collected from the uprising.
+</p>
+<p>
+When a participant performs a flower-offering gesture and sustains it for more than five seconds,
+the system recognizes the motion and triggers an automatic capture,
+overlaying 300 archival images across the participant’s silhouette to create a digital memorial portrait.
+
+Through this embodied act of remembrance, the work converts silent mourning into a collective ritual,
+where technology mediates empathy, presence, and history.
+
+</p><br>
+<h4>
+Engine: Unity<br>
+Language: C#<br>
+Hardware: Azure Kinect · Depth Camera · Projection Screen · PC (NVIDIA RTX 3080)<br>
+Software: OpenCV · TouchDesigner<br>
+Dataset: ~300 archival photographs (May 18 Gwangju Democratization Movement)
+</h4>
+<br>
+<h4>
+Pipeline:
+</h4>
+<p>
+Depth & Skeleton Tracking<br>
+Captured real-time depth and body index maps using Azure Kinect SDK.<br>
+Extracted joint coordinates to detect upper-body pose patterns.<br><br>
+Gesture Recognition System<br>
+Defined a “flower offering” gesture via upper-arm and hand position vectors.<br>
+Pose classified as offering when confidence exceeded 86% for 5 seconds.<br>
+Gesture event triggered photo capture and mosaic generation.<br><br>
+Archival Image Integration<br>
+Preprocessed ~300 high-resolution documentary images (licensed from participating photojournalists).<br>
+Used custom mosaic algorithm in Unity to layer archival photos over the live silhouette in real time.<br><br>
+Shader Composition<br>
+Implemented GPU-based blending shader controlling transparency, luminance mapping, and time-based fade-in.<br>
+Combined Unity and TouchDesigner pipeline for synchronized projection and visual fading.<br><br>
+Projection Display<br>
+Final composite projected onto a large wall surface, creating a memorial altar visualization that responded to audience participation.<br>
+</p>
+
+<h4><br>
+Artistic & Research Focus
+</h4>
+<p>
+The project transforms commemoration into participation, exploring how technology can preserve and reinterpret historical empathy.
+Through gesture, time, and presence, To Eternity bridges personal mourning and collective memory.
+
+By allowing the audience’s body to become the medium of remembrance,
+it redefines memorial experience as a collaborative and living archive,
+where the act of offering flowers becomes a generative visualization of solidarity and resilience.
+</p>
+    </div>
+
+<!--
+    <div style="width:100%; aspect-ratio:1920/1080; overflow:hidden;">
+    <img src="../assets/images/e2.png"
+         alt="Interactive Art Project 1 Still"
+         style="width:100%; height:100%; object-fit:cover;">
+</div>
+-->
+
+<div style="width:100%; aspect-ratio:1920/1080; overflow:hidden;">
+    <img src="../assets/images/e3.png"
+         alt="Interactive Art Project 1 Still"
+         style="width:100%; height:100%; object-fit:cover;">
+</div>
+
+<div style="width:100%; aspect-ratio:1920/1080; overflow:hidden;">
+    <img src="../assets/images/e4.png"
+         alt="Interactive Art Project 1 Still"
+         style="width:100%; height:100%; object-fit:cover;">
+</div>
+
+<div style="width:100%; aspect-ratio:1920/1080; overflow:hidden;">
+    <img src="../assets/images/e5.png"
+         alt="Interactive Art Project 1 Still"
+         style="width:100%; height:100%; object-fit:cover;">
+</div>
+
+<div style="width:100%; aspect-ratio:1920/1080; overflow:hidden;">
+    <img src="../assets/images/e6.png"
+         alt="Interactive Art Project 1 Still"
+         style="width:100%; height:100%; object-fit:cover;">
+</div>
+
+
+
+    <nav class="pagination">
+      <span></span>
+      <a href="../index.html">Back to Portfolio</a>
+      <a href="interactive_2.html">Next →</a>
+    </nav>
+  </div>
+
+
+
+
+</body>
+</html>
